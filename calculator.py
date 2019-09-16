@@ -26,15 +26,7 @@ import sys
 
 from fileinfo import raw_input
 
-
-def calc(term):
-    """
-        input: term of type str
-        output: returns the result of the computed term.
-        purpose: This function is the actual calculator and the heart of the application
-    """
-
-    # This part is for reading and converting arithmetic terms.
+def replaceTerm(term):
     term = term.replace(' ', '')
     term = term.replace('^', '**')
     term = term.replace('=', '')
@@ -42,7 +34,19 @@ def calc(term):
     term = term.replace('%', '/100.00')
     term = term.replace('rad', 'radians')
     term = term.replace('mod', '%')
+    
 
+    return term
+  
+def calc(term):
+    """
+        input: term of type str
+        output: returns the result of the computed term.
+        purpose: This function is the actual calculator and the heart of the application
+    """
+
+    term = replaceTerm(term);
+    
     functions = ['sin', 'cos', 'tan', 'pow', 'cosh', 'sinh', 'tanh', 'sqrt', 'pi', 'radians', 'e']
 
     # This part is for reading and converting function expressions.
