@@ -7,24 +7,18 @@ class CreditCard:
 
     @property
     def company(self):
-        comp = None
-        if str(self.card_no).startswith('4'):
-            comp = 'Visa Card'
-        elif str(self.card_no).startswith(('50', '67', '58', '63',)):
-            comp = 'Maestro Card'
-        elif str(self.card_no).startswith('5'):
-            comp = 'Master Card'
-        elif str(self.card_no).startswith('37'):
-            comp = 'American Express Card'
-        elif str(self.card_no).startswith('62'):
-            comp = 'Unionpay Card'
-        elif str(self.card_no).startswith('6'):
-            comp = 'Discover Card'
-        elif str(self.card_no).startswith('35'):
-            comp = 'JCB Card'
-        elif str(self.card_no).startswith('7'):
-            comp = 'Gasoline Card'
-
+        cardNo = str(self.card_no)
+        switch (cardNo) {
+            case cardNo.startswith('4'):  comp = "Visa Card"; break;
+            case cardNo.startswith(('50', '67', '58', '63',)):  comp = "Maestro Card"; break;
+            case cardNo.startswith('5'):  comp = "Master Card"; break;
+            case cardNo.startswith('37'):  comp = "American Express Card"; break;
+            case cardNo.startswith('62'):  comp = "Unionpay Card"; break;
+            case cardNo.startswith('6'):  comp = "Discover Card"; break;
+            case cardNo.startswith('35'):  comp = "JCB Card"; break;
+            case cardNo.startswith('7'):  comp = "Gasoline Card"; break;
+            default: comp = "Invalid Credit Card"; break;
+        }
         return 'Company : ' + comp
 
     def first_check(self):
